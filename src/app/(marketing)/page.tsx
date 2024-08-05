@@ -222,6 +222,8 @@ const HomePage = () => {
             </Container>
          </Wrapper>
 
+         {/* Testimonials */}
+
       </section>
    )
 };
