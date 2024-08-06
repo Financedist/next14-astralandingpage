@@ -223,7 +223,20 @@ const HomePage = () => {
          </Wrapper>
 
          {/* Testimonials */}
-
+         <Wrapper className="flex flex-col items-center justify-center py-12 relative">
+            <div className="hidden md:block absolute -top-1/4 -left-1/3 w-72 h-72 bg-indigo-500 rounded-full blur-[10rem] -z-10"></div>
+            <Container>
+               <div className="max-w-md mx-auto text-start md:text-center">
+                  <SectionBadge title="Our Customers" />
+                  <h2 className="text-3xl lg:text-4xl font-semibold mt-6">
+                     What people are saying
+                  </h2>
+                  <p className="text-muted-foreground mt-6">
+                     See how Astra empowers businesses of all sizes. Here&apos;s what real people are saying on Twitter
+                  </p>
+               </div>
+            </Container>
+         </Wrapper>
       </section>
    )
 };
