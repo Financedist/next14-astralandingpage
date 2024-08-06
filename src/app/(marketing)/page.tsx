@@ -2,16 +2,21 @@ import { Container, Icons, Wrapper } from "@/components";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import Marquee from "@/components/ui/marquee";
 import SectionBadge from "@/components/ui/section-badge";
-import { features, perks, pricingCards } from "@/constants";
+import { features, perks, pricingCards, reviews } from "@/constants";
 import { cn } from "@/lib/utils";
-import { ArrowRight, ChevronRight, Zap } from "lucide-react";
+import { ArrowRight, ChevronRight, UserIcon, Zap } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 import React from "react";
 
 const HomePage = () => {
+
+   const firstRow = reviews.slice(0, reviews.length / 2);
+   const secondRow = reviews.slice(reviews.length / 2);
+
    return (
       <section className="w-full relative flex flex-col items-center justify-center px-4 md:px-0 py-8">
 
@@ -234,6 +239,65 @@ const HomePage = () => {
                   <p className="text-muted-foreground mt-6">
                      See how Astra empowers businesses of all sizes. Here&apos;s what real people are saying on Twitter
                   </p>
+               </div>
+            </Container>
+            <Container>
+               <div className="py-10 md:py-20 w-full">
+                  <div className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden py-10">
+                     <Marquee 
+                        pauseOnHover 
+                        className="[--duration:20s] select-none"
+                     >
+                        {firstRow.map((review) => (
+                           <figure
+                              key={review.name}
+                              className={cn(
+                                 "relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
+                                 "border-zinc-50/[.1] bg-background hover:bg-zinc-50/[.15]",
+                              )}
+                           >
+                              <div className="flex flex-row items-center gap-2">
+                                 <UserIcon className="w-6 h-6" />
+                                 <div className="flex flex-col">
+                                    <figcaption className="text-sm font-medium">
+                                       {review.name}
+                                    </figcaption>
+                                    <p className="text-xs font-medium text-muted-foreground">{review.username}</p>
+                                 </div>
+                              </div>
+                              <blockquote className="mt-2 text-sm">{review.body}</blockquote>
+                           </figure>
+                        ))}
+                     </Marquee>
+                     <Marquee
+                        reverse 
+                        pauseOnHover 
+                        className="[--duration:20s] select-none"
+                     >
+                        {secondRow.map((review) => (
+                           <figure
+                              key={review.name}
+                              className={cn(
+                                 "relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
+                                 "border-zinc-50/[.1] bg-background hover:bg-zinc-50/[.15]",
+                              )}
+                           >
+                              <div className="flex flex-row items-center gap-2">
+                                 <UserIcon className="w-6 h-6" />
+                                 <div className="flex flex-col">
+                                    <figcaption className="text-sm font-medium">
+                                       {review.name}
+                                    </figcaption>
+                                    <p className="text-xs font-medium text-muted-foreground">{review.username}</p>
+                                 </div>
+                              </div>
+                              <blockquote className="mt-2 text-sm">{review.body}</blockquote>
+                           </figure>
+                        ))}
+                     </Marquee>
+                     <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-background"></div>
+                     <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-background"></div>
+                  </div>
                </div>
             </Container>
          </Wrapper>

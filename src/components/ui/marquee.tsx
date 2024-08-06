@@ -31,9 +31,9 @@ export default function Marquee({
                 className,
             )}
         >
-            {Array(repeat)
-                .fill(0)
-                .map((_, i) => (
+            {Array(repeat)              // Crea un array de 4 posiciones
+                .fill(0)                // Con el valor 0
+                .map((_, i) => (        // y les agrega un índice. Para cada iteración, se devuelve un nuevo div que contiene el children
                     <div
                         key={i}
                         className={cn("flex shrink-0 justify-around [gap:var(--gap)]", {
