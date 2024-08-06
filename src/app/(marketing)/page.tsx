@@ -301,6 +301,8 @@ const HomePage = () => {
                </div>
             </Container>
          </Wrapper>
+
+         {/* News Letter */}
       </section>
    )
 };
