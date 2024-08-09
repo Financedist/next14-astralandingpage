@@ -3,8 +3,11 @@ import "@/styles/globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Inter } from "next/font/google";
 import { dark } from '@clerk/themes';
+import { SITE_CONFIG } from "@/config";
 
 const font = Inter({ subsets: ["latin"] });
+
+export const metadata = SITE_CONFIG;
 
 export default function RootLayout({
    children,
